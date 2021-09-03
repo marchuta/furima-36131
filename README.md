@@ -6,33 +6,34 @@
 | nickname               | string| null: false |
 | email                  | string| null: false, unique: true |
 | encrypted_password     | string| null: false |
-| last_name_Kanji        | string| null: false |
-| first_name_Kanji       | string| null: false |
-| last_name_Katakana     | string| null: false |
-| first_name_Katakana    | string| null: false |
+| last_name_kanji        | string| null: false |
+| first_name_kanji       | string| null: false |
+| last_name_katakana     | string| null: false |
+| first_name_katakana    | string| null: false |
 | birthday               | date  | null: false |
 
 ### Association 
 
 - has_many :items
+- has_many :registers
 
 ## items table
 | Column             | Type  | Options     |
 | ----------------   | ------| ----------- |
-
 | name               | string  | null: false |
 | description        | text    | null: false |
-| category           | integer | null: false |
-| condition          | integer | null: false |
-| carriage           | integer | null: false |
-| region             | integer | null: false |
-| days               | integer | null: false |
+| category_id           | integer | null: false |
+| condition_id          | integer | null: false |
+| carriage_id           | integer | null: false |
+| region_id             | integer | null: false |
+| day_id               | integer | null: false |
 | price              | integer | null: false |
 | user               | references| null: false, foreign_key: true |
 
 
 ### Association 
 - belongs_to :user
+- has_one :register
 
 
 ## register table
@@ -44,6 +45,7 @@
 ### Association 
 - belongs_to :user
 - belongs_to :item
+- has_one :address
 
 
 
@@ -51,11 +53,15 @@
 | Column             | Type  | Options     |
 | ----------------   | ------| ----------- |
 | post_code          | string| null: false |
-| region             |integer| null: false |
+| region_id          |integer| null: false |
 | city               | string| null: false |
 | block_number       | string| null: false |
 | building           | string| ----------- |
 | phone_number       | string| null: false |
+| register               | references| null: false, foreign_key: true |
+
+### Association
+- belongs_to :register
 
 
 
