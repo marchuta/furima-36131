@@ -1,71 +1,24 @@
 # README
 
-## users table
-| Column                 | Type  | Options     |
-| -----------------------| ------| ----------- |
-| nickname               | string| null: false |
-| email                  | string| null: false, unique: true |
-| encrypted_password     | string| null: false |
-| last_name_kanji        | string| null: false |
-| first_name_kanji       | string| null: false |
-| last_name_katakana     | string| null: false |
-| first_name_katakana    | string| null: false |
-| birthday               | date  | null: false |
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-### Association 
+Things you may want to cover:
 
-- has_many :items
-- has_many :registers
+* Ruby version
 
-## items table
-| Column             | Type  | Options     |
-| ----------------   | ------| ----------- |
-| name               | string  | null: false |
-| description        | text    | null: false |
-| category_id           | integer | null: false |
-| condition_id          | integer | null: false |
-| carriage_id           | integer | null: false |
-| region_id             | integer | null: false |
-| day_id               | integer | null: false |
-| price              | integer | null: false |
-| user               | references| null: false, foreign_key: true |
+* System dependencies
 
+* Configuration
 
-### Association 
-- belongs_to :user
-- has_one :register
+* Database creation
 
+* Database initialization
 
-## register table
-| Column             | Type  | Options     |
-| ----------------   | ------| ----------- |
-| user               | references| null: false, foreign_key: true |
-| item               | references| null: false, foreign_key: true |
+* How to run the test suite
 
-### Association 
-- belongs_to :user
-- belongs_to :item
-- has_one :address
+* Services (job queues, cache servers, search engines, etc.)
 
+* Deployment instructions
 
-
-## address table
-| Column             | Type  | Options     |
-| ----------------   | ------| ----------- |
-| post_code          | string| null: false |
-| region_id          |integer| null: false |
-| city               | string| null: false |
-| block_number       | string| null: false |
-| building           | string| ----------- |
-| phone_number       | string| null: false |
-| register               | references| null: false, foreign_key: true |
-
-### Association
-- belongs_to :register
-
-
-
-
-
-
-
+* ...
