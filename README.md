@@ -49,7 +49,7 @@
 
 
 
-## address table
+## oder (address) table
 | Column             | Type  | Options     |
 | ----------------   | ------| ----------- |
 | post_code          | string| null: false |
