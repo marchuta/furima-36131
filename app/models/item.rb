@@ -3,8 +3,9 @@ class Item < ApplicationRecord
   validates :name, presence: true
 
 
-  validates :price, presence: true
+  validates :price, numericality: { in: 300..9999999 },presence: true
   validates :image, presence: true
+  validates :description, presence: true
 
   validates :category_id, numericality: { other_than: 1 , message: "can't be blank"}
   validates :condition_id, numericality: { other_than: 1 , message: "can't be blank"}
