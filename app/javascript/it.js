@@ -1,0 +1,16 @@
+function test (){
+  console.log("わーい");
+  const priceInput = document.getElementById("item-price");
+priceInput.addEventListener("input", () => {
+   const inputValue = priceInput.value;
+   console.log(inputValue);
+   const addTaxDom = document.getElementById("add-tax-price");
+   const margin = document.getElementById("profit");
+   addTaxDom.innerHTML = Math.floor(inputValue* 0.1);
+   margin.innerHTML = Math.floor(inputValue* 0.9);
+   /*console.log(Math.floor(inputValue* 0.1));*/
+   /*addTaxDom.innerHTML = console.log(Math.floor(inputValue* 0.1));*/
+})
+ };
+ 
+ window.addEventListener('load', test);
