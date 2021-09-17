@@ -8,8 +8,7 @@ priceInput.addEventListener("input", () => {
    const margin = document.getElementById("profit");
    addTaxDom.innerHTML = Math.floor(inputValue* 0.1);
    margin.innerHTML = Math.floor(inputValue* 0.9);
-   /*console.log(Math.floor(inputValue* 0.1));*/
-   /*addTaxDom.innerHTML = console.log(Math.floor(inputValue* 0.1));*/
+
 })
  };
  
