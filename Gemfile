@@ -60,7 +60,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development do
   gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec'
+  gem 'overcommit'
 end
+
 
 gem 'devise'
 
@@ -69,6 +74,7 @@ gem 'pry-rails'
 gem 'rails-i18n'
 
 gem 'mini_magick'
+
 gem 'image_processing', '~> 1.2'
 
 gem 'active_hash'
