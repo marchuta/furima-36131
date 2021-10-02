@@ -36,7 +36,7 @@
 - has_one :register
 
 
-## register table
+## orders table
 | Column             | Type  | Options     |
 | ----------------   | ------| ----------- |
 | user               | references| null: false, foreign_key: true |
@@ -49,7 +49,7 @@
 
 
 
-## oder (address) table
+## addresses table
 | Column             | Type  | Options     |
 | ----------------   | ------| ----------- |
 | post_code          | string| null: false |
