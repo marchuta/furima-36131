@@ -3,11 +3,11 @@ class OrderAddress
   attr_accessor :token, :post_code, :region_id, :city, :block_number, :building, :phone_number, :order_id, :user_id, :item_id
 
   with_options presence: true do
-    validates :post_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'ハイフンを入れてください' }
-    validates :region_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :post_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'にハイフンを入れてください' }
+    validates :region_id, numericality: { other_than: 1 }
     validates :city
     validates :block_number
-    validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'ハイフンは入れないでください' }
+    validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'にハイフンは入れないでください' }
     validates :user_id
     validates :item_id
     validates :token
