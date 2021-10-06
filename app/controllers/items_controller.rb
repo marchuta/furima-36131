@@ -1,13 +1,10 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new ,:edit]#, :destroy ]
+  before_action :authenticate_user!, only: [:new, :edit] # , :destroy ]
   before_action :get_item_info, only: [:edit, :update, :show]
-  before_action :move_to_index, only: [:edit, :update]#, :destroy ]
+  before_action :move_to_index, only: [:edit, :update] # , :destroy ]
 
   def index
     @items = Item.all.order(:created_at)
-
-    
-    
   end
 
   def new
@@ -24,12 +21,10 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit 
-    
+  def edit
   end
 
   def update
-    
     @item.update(item_params)
 
     if @item.save
@@ -37,12 +32,9 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
-
-    
   end
 
   def show
-    
   end
 
   private
@@ -58,9 +50,6 @@ class ItemsController < ApplicationController
 
   def move_to_index
     @item = Item.find(params[:id])
-    unless current_user == @item.user
-      redirect_to action: :index 
-    end
+    redirect_to action: :index unless current_user == @item.user
   end
-
 end

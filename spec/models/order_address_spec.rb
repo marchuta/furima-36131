@@ -23,7 +23,7 @@ RSpec.describe OrderAddress, type: :model do
     context '購入できない場合' do
       it '郵便番号がなければ、購入できない' do
         @order_address.post_code = ''
-        
+
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Post codeを入力してください')
       end
