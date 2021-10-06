@@ -14,10 +14,12 @@ ja:
         description: 商品説明
         Category: カテゴリ
         condition: 商品状態
+        
 
 
         price: 価格
         user: ユーザー
+      
 
 
       

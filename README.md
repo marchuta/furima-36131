@@ -15,7 +15,7 @@
 ### Association 
 
 - has_many :items
-- has_many :registers
+- has_many :orders
 
 ## items table
 | Column             | Type  | Options     |
@@ -33,10 +33,10 @@
 
 ### Association 
 - belongs_to :user
-- has_one :register
+- has_one :order
 
 
-## register table
+## orders table
 | Column             | Type  | Options     |
 | ----------------   | ------| ----------- |
 | user               | references| null: false, foreign_key: true |
@@ -49,7 +49,7 @@
 
 
 
-## oder (address) table
+## addresses table
 | Column             | Type  | Options     |
 | ----------------   | ------| ----------- |
 | post_code          | string| null: false |
@@ -58,10 +58,10 @@
 | block_number       | string| null: false |
 | building           | string| ----------- |
 | phone_number       | string| null: false |
-| register               | references| null: false, foreign_key: true |
+| order              | references| null: false, foreign_key: true |
 
 ### Association
-- belongs_to :register
+- belongs_to :order
 
 
 
