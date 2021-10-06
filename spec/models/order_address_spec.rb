@@ -35,9 +35,9 @@ RSpec.describe OrderAddress, type: :model do
       end
 
       it '配送先の情報がなければ、購入できない' do
-        @order_address.region_id = ''
+        @order_address.region_id = '1'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Regionを入力してください')
+        expect(@order_address.errors.full_messages).to include('Regionは1以外の値にしてください')
       end
 
       it '市町村区の情報がなければ、購入できない' do
@@ -60,6 +60,18 @@ RSpec.describe OrderAddress, type: :model do
 
       it '電話番号は10桁以上11桁以内の半角数値でなければ、購入できない' do
         @order_address.phone_number = '111-1111-1111'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include('Phone numberにハイフンは入れないでください')
+      end
+
+      it '電話番号が9桁以下では購入できない' do
+        @order_address.phone_number = '111111111'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include('Phone numberにハイフンは入れないでください')
+      end
+
+      it '電話番号が12桁以上では購入できない' do
+        @order_address.phone_number = '111111111111'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Phone numberにハイフンは入れないでください')
       end
