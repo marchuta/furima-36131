@@ -31,7 +31,7 @@ RSpec.describe OrderAddress, type: :model do
       it '郵便番号にハイフンが含まれていなければ、購入できない' do
         @order_address.post_code = '1234567'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Post codeハイフンを入れてください')
+        expect(@order_address.errors.full_messages).to include('Post codeにハイフンを入れてください')
       end
 
       it '配送先の情報がなければ、購入できない' do
@@ -61,7 +61,7 @@ RSpec.describe OrderAddress, type: :model do
       it '電話番号は10桁以上11桁以内の半角数値でなければ、購入できない' do
         @order_address.phone_number = '111-1111-1111'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Phone numberハイフンは入れないでください')
+        expect(@order_address.errors.full_messages).to include('Phone numberにハイフンは入れないでください')
       end
 
       it 'tokenがなければ、購入できない' do
