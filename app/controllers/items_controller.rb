@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
-  before_action :get_item_info, only: [:edit, :update, :show]
+  before_action :get_item_info, only: [:edit, :update, :show, :destroy]
   before_action :move_to_index, only: [:edit, :update, :destroy]
 
   def index
@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    get_item_info
+    
   end
 
   def update
@@ -40,7 +40,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    get_item_info
     @item.destroy
     redirect_to root_path
   end
@@ -57,7 +56,7 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    get_item_info
+    
     redirect_to action: :index if current_user != @item.user || @item.order.present?
   end
 end
